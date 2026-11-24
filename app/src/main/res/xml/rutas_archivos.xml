@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Carpetas que puede compartir el FileProvider (foto tomada con la cámara, T-46). -->
+<paths>
+    <cache-path name="camara" path="camara/" />
+</paths>
