@@ -19,17 +19,25 @@ Proyecto del curso de Desarrollo de Aplicaciones Móviles, Universidad del Valle
 
 ## Tecnologías
 
-- Kotlin + Jetpack Compose (Material 3), arquitectura MVVM
+- Kotlin + Jetpack Compose (Material 3), arquitectura MVVM (pantalla → ViewModel con `StateFlow` → repositorio)
 - Navigation Compose
+- Room + DataStore (datos locales y modo sin conexión)
+- Firebase (plan Blaze): Authentication (correo y Google), Firestore, Storage, Cloud Messaging y Cloud Functions
 - Pruebas unitarias con JUnit
-- Próximamente: Room + DataStore (local) y Firebase Authentication + Firestore (plan Spark)
 
 ## Estructura
 
 ```
-app/     Interfaz (pantallas Compose), ViewModels y datos
-motor/   Lógica pura del puzzle (sin Android), probada con JUnit
+app/         Android (MVVM)
+  ui/        Pantallas Compose y sus ViewModels
+  dominio/   Reglas y modelos de la app
+  datos/     Repositorios (Room, DataStore y Firebase)
+motor/       Lógica pura del puzzle (sin Android), probada con JUnit
+functions/   Cloud Functions
 ```
+
+Regla MVVM del equipo: una pantalla nunca crea repositorios ni lanza corrutinas por su cuenta;
+dibuja el estado que expone su ViewModel y le avisa de las acciones del usuario.
 
 ## Cómo abrir el proyecto
 
